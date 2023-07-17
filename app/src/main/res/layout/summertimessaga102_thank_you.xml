@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/summertimessaga102_ic_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:weightSum="3">
+
+    <FrameLayout
+
+        android:id="@+id/fl_adplaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+
+            android:id="@+id/qreka"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/summertimessaga102_qc" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:theme="@style/Theme.summersaga.Lottie" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15.0dip"
+            android:fontFamily="@font/raavi"
+            android:gravity="center"
+            android:text="We'd love to have you visit..!"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="18.0dip" />
+
+        <ImageView
+            android:id="@+id/visitr"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/summertimessaga102_exitnow"
+            android:gravity="center"
+            android:text="Exit"
+            android:textColor="@color/Button_Text"
+            android:textSize="15dp"
+            android:textStyle="bold"
+
+            />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/summertimessaga102_qb1"
+        android:gravity="bottom"
+        android:visibility="visible">
+
+    </FrameLayout>
+</LinearLayout>

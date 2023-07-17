@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/summertimessaga102_ic_background"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="visible"
+    android:weightSum="3"
+
+    >
+
+
+    <FrameLayout
+        android:id="@+id/fl_adplaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:visibility="visible">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/summertimessaga102_qd"
+            android:id="@+id/qreka"/>
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/letPlay1"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/summertimessaga102_get_start" />
+
+            <ImageView
+                android:id="@+id/share"
+                android:layout_width="200dp"
+
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/summertimessaga102_share" />
+
+            <ImageView
+                android:id="@+id/rate"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/summertimessaga102_rate" />
+
+            <!--<ImageView
+                android:id="@+id/More"
+                android:layout_width="200dp"
+                android:layout_margin="10dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/more" />-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_b"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/summertimessaga102_qb4"
+        android:gravity="bottom"
+        android:visibility="visible">
+
+    </FrameLayout>
+
+
+</LinearLayout>
