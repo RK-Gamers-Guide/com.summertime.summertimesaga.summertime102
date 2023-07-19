@@ -35,6 +35,9 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">0dp</item>
     </style>
+    <style name="linearLayout_visibility">
+        <item name="android:visibility">gone</item>
+    </style>
 
 
 </resources>
