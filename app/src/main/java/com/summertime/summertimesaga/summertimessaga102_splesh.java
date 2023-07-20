@@ -24,6 +24,8 @@ import com.facebook.ads.MediaView;
 import com.facebook.ads.MediaViewListener;
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdBase;
+import com.facebook.ads.NativeAdListener;
+import com.facebook.ads.NativeBannerAd;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -39,13 +41,14 @@ public class summertimessaga102_splesh extends AppCompatActivity {
     public String Splash = String.valueOf(getClass());
     public String TAG = String.valueOf(getClass());
     public static InterstitialAd interstitialAd1;
-
+    public static NativeBannerAd nativeBannerAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.summertimessaga102_activity_splash);
         loadFullscreenad();
+        loadNativeBanner();
         NextScreen();
         datafromlink();
 
@@ -110,6 +113,42 @@ public class summertimessaga102_splesh extends AppCompatActivity {
 
     }
 
+    public void loadNativeBanner() {
+        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
+        Log.e(TAG, "fbnativebanner16 " + getString(R.string.fbnativeban));
+        NativeAdListener nativeAdListener = new NativeAdListener() {
+            @Override
+            public void onMediaDownloaded(Ad ad) {
+
+            }
+
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                Log.e(Splash, "fbnativebanner 16 " + adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                Log.e(Splash, "Native ad is loaded and ready to be displayed!");
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+
+            }
+        };
+        nativeBannerAd.loadAd(
+                nativeBannerAd.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build());
+
+
+    }
 
     void datafromlink(){
         new AsyncTask<Void, Void, String>() {

@@ -20,11 +20,14 @@ import static com.summertime.summertimesaga.summertimessaga102_splesh.inflateAd;
 
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdListener;
+import com.facebook.ads.NativeBannerAd;
+import com.facebook.ads.NativeBannerAdView;
 
 public class summertimessaga102_page extends AppCompatActivity {
     ImageView start;
     
-    private com.facebook.ads.AdView bannerAdContainer;
+    NativeBannerAd nativeBannerAd;
+    FrameLayout nativeBannerContainer;
     LinearLayout adView1, L1, L2;
     FrameLayout nativeAdContainer;
     FrameLayout frameLayout;
@@ -51,7 +54,7 @@ public class summertimessaga102_page extends AppCompatActivity {
 
 
         loadfbNativeAd();
-        showfbbanner();
+        showfbNativeBanner();
         ShowFullAds();
 
         this.start = (ImageView) findViewById(R.id.start);
@@ -92,12 +95,8 @@ public class summertimessaga102_page extends AppCompatActivity {
 
     }
     public void onBackPressed() {
-        summertimessaga102_splesh.url_passing(summertimessaga102_page.this);
-        summertimessaga102_splesh.url_passing1(summertimessaga102_page.this);
+        startActivity(new Intent(summertimessaga102_page.this, summertimessaga102_Exit.class));
 
-        summertimessaga102_page.this.startActivity(new Intent(summertimessaga102_page.this, summertimessaga102_Exit.class));
-
-        ShowFullAds();
 
 
     }
@@ -162,40 +161,45 @@ public class summertimessaga102_page extends AppCompatActivity {
 
     }
 
-    private void showfbbanner() {
-        Log.e(TAG, "fbban5 " + getString(R.string.fbbanner));
-        FrameLayout adViewContainer = findViewById(R.id.fl_b);
-        bannerAdContainer = new com.facebook.ads.AdView(this, getString(R.string.fbbanner), com.facebook.ads.AdSize.BANNER_HEIGHT_90);
-        adViewContainer.addView(bannerAdContainer);
+    public void showfbNativeBanner() {
+        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+        nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b);
+        // Add the Native Banner Ad View to your ad container
+        nativeBannerContainer.addView(adView);
+
+        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
+        Log.e(TAG, "fbnativebanner1 " + getString(R.string.fbnativeban));
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
+
             }
 
             @Override
             public void onError(Ad ad, AdError adError) {
-                Log.e("fbban5==>", adError.getErrorMessage());
+                Log.e(TAG, "fbnativebanner 1 " + adError.getErrorMessage());
 
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
-                Log.e("fbban5==>", "onAdLoaded: ");
+                Log.e(TAG, "Native ad is loaded and ready to be displayed!");
+                View adView = NativeBannerAdView.render(getApplicationContext(), nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+                nativeBannerContainer.addView(adView);
             }
 
             @Override
             public void onAdClicked(Ad ad) {
-                Log.e("fbban5==>", "onAdClicked: ");
+
             }
 
             @Override
             public void onLoggingImpression(Ad ad) {
-                Log.e("fbban5==>", "onLoggingImpression: ");
+
             }
         };
-
-        bannerAdContainer.loadAd(
-                bannerAdContainer.buildLoadAdConfig()
+        nativeBannerAd.loadAd(
+                nativeBannerAd.buildLoadAdConfig()
                         .withAdListener(nativeAdListener)
                         .build());
     }

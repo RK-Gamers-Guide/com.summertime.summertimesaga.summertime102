@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">SummerTime saga walkaway</string>
 
-    <string name="fbfull">1410359289762889_1410359536429531</string>
+    <!--<string name="fbfull">1410359289762889_1410359536429531</string>
     <string name="fbnative">1410359289762889_1410359599762858</string>
-    <string name="fbbanner">1410359289762889_1410359496429535</string>
+    <string name="fbbanner">1410359289762889_1410359496429535</string>-->
+
+    <string name="fbfull">711816833685108_711817070351751</string>
+    <string name="fbnative">711816833685108_711817140351744</string>
+    <string name="fbnativeban">711816833685108_711817027018422</string>
 
 </resources>
