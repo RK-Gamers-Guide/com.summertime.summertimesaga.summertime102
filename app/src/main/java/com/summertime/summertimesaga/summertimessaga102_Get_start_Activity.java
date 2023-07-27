@@ -94,7 +94,7 @@ public class summertimessaga102_Get_start_Activity extends AppCompatActivity {
                                     shareIntent.setType("text/plain");
                                     String shareMessage = getString(R.string.app_name);
                                     shareMessage = shareMessage + "   ";
-                                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + getPackageName();
+                                    shareMessage = shareMessage + "\nhttps://play.google.com/store/apps/details?id=" + getPackageName();
                                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                                     startActivity(Intent.createChooser(shareIntent, "choose one"));
                                 } catch (Exception e) {
