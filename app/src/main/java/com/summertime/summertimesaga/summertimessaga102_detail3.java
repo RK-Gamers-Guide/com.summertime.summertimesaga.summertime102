@@ -65,7 +65,7 @@ public class summertimessaga102_detail3 extends AppCompatActivity {
         findViewById(R.id.fl_adplaceholder).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                summertimessaga102_splesh.url_passing(summertimessaga102_detail3.this);
+                url_passing(summertimessaga102_detail3.this);
 
             }
         });
@@ -73,7 +73,7 @@ public class summertimessaga102_detail3 extends AppCompatActivity {
         findViewById(R.id.fl_b).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                summertimessaga102_splesh.url_passing(summertimessaga102_detail3.this);
+                url_passing(summertimessaga102_detail3.this);
 
             }
         });

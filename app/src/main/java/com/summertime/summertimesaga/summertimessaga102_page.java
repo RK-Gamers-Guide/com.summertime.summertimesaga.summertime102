@@ -67,7 +67,7 @@ public class summertimessaga102_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                summertimessaga102_splesh.url_passing(summertimessaga102_page.this);
+                url_passing(summertimessaga102_page.this);
 
             }
         });
@@ -75,7 +75,7 @@ public class summertimessaga102_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                summertimessaga102_splesh.url_passing(summertimessaga102_page.this);
+                url_passing(summertimessaga102_page.this);
 
             }
         });

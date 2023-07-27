@@ -52,6 +52,8 @@ public class summertimessaga102_MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.summertimessaga102_main2);
+
+        url_passing(this);
         loadfbNativeAd();
         showfbNativeBanner();
         ShowFullAds();

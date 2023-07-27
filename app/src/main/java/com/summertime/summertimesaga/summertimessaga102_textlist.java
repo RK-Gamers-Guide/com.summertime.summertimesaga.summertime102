@@ -141,7 +141,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
         findViewById(R.id.fl_adplaceholder).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                summertimessaga102_splesh.url_passing(summertimessaga102_textlist.this);
+                url_passing(summertimessaga102_textlist.this);
 
             }
         });
@@ -149,7 +149,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
         findViewById(R.id.fl_b).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                summertimessaga102_splesh.url_passing(summertimessaga102_textlist.this);
+                url_passing(summertimessaga102_textlist.this);
 
             }
         });
