@@ -16,13 +16,6 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.summersaga.Lottie">
-
-       <item name="lottie_autoPlay">true</item>
-        <item name="lottie_loop">true</item>
-        <item name="lottie_rawRes">@raw/thankyou</item>
-
-    </style>
     <style name="Theme.summersaga.Lottiea">
 
        <item name="lottie_autoPlay">true</item>
@@ -39,5 +32,20 @@
         <item name="android:visibility">gone</item>
     </style>
 
+    <style name="Theme.summersaga.Lottie2">
 
+        <item name="lottie_autoPlay">true</item>
+        <item name="lottie_loop">true</item>
+        <item name="lottie_rawRes">@raw/dddedr</item>
+
+
+    </style>
+    <style name="Theme.summersaga.Lottie1">
+
+        <item name="lottie_autoPlay">true</item>
+        <item name="lottie_loop">true</item>
+        <item name="lottie_rawRes">@raw/z</item>
+
+
+    </style>
 </resources>

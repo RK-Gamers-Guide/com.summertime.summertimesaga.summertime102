@@ -53,7 +53,7 @@ public class summertimessaga102_MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.summertimessaga102_main2);
 
-        url_passing(this);
+
         loadfbNativeAd();
         showfbNativeBanner();
         ShowFullAds();
@@ -274,12 +274,12 @@ public class summertimessaga102_MainActivity2 extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        url_passing(summertimessaga102_MainActivity2.this);
         ShowFullAds();
     }
 }

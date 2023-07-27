@@ -125,7 +125,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
 
         });
         
-        url_passing(summertimessaga102_textlist.this);
+
 
 
         loadfbNativeAd();
@@ -231,8 +231,6 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        url_passing(summertimessaga102_textlist.this);
         ShowFullAds();
     }
 
@@ -570,7 +568,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     }
 
 
-    
+
 
     public void ShowFullAds() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -638,6 +636,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 }
 

@@ -56,7 +56,7 @@ public class summertimessaga102_detail6 extends AppCompatActivity {
         webView1.loadUrl("file:///android_asset/summertimessaga102_6.html");
 
 
-        url_passing(summertimessaga102_detail6.this);
+
 
 
         loadfbNativeAd();
@@ -85,10 +85,6 @@ public class summertimessaga102_detail6 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        url_passing(summertimessaga102_detail6.this);
-
-
         ShowFullAds();
     }
 
@@ -266,6 +262,7 @@ public class summertimessaga102_detail6 extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 
 

@@ -48,7 +48,7 @@ public class summertimessaga102_Get_start_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.summertimessaga102_get_start);
 
-        url_passing(summertimessaga102_Get_start_Activity.this);
+
 
         findViewById(R.id.fl_adplaceholder).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,10 +159,6 @@ public class summertimessaga102_Get_start_Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        url_passing(summertimessaga102_Get_start_Activity.this);
-
-
         ShowFullAds();
     }
 
@@ -339,5 +335,6 @@ public class summertimessaga102_Get_start_Activity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 }

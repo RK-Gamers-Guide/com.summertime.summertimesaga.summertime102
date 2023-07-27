@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -29,8 +30,8 @@ import com.facebook.ads.NativeBannerAd;
 import com.facebook.ads.NativeBannerAdView;
 
 public class summertimessaga102_Exit extends AppCompatActivity {
-    private ImageView btn_no,Q_1,Q_2;
-    private ImageView exitapp;
+    private Button btn_no, Q_1, Q_2;
+    private Button exitapp;
 
 
     
@@ -68,7 +69,7 @@ public class summertimessaga102_Exit extends AppCompatActivity {
 
                             
 
-        url_passing(summertimessaga102_Exit.this);
+
 
         findViewById(R.id.fl_adplaceholder).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,28 +88,20 @@ public class summertimessaga102_Exit extends AppCompatActivity {
             }
         });
 
-        ImageView imageView = (ImageView) findViewById(R.id.exitapp);
-        this.exitapp = imageView;
-        imageView.setOnClickListener(new View.OnClickListener() {
+        Button button = (Button) findViewById(R.id.exitapp);
+        this.exitapp = button;
+        button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-
-
                 summertimessaga102_Exit.this.startActivity(new Intent(summertimessaga102_Exit.this, summertimessaga102_Thank_you.class));
 
             }
-
         });
-        ImageView imageView2 = (ImageView) findViewById(R.id.btn_no);
-        this.btn_no = imageView2;
-        imageView2.setOnClickListener(new View.OnClickListener() {
+        Button button1 = (Button) findViewById(R.id.btn_no);
+        this.btn_no = button1;
+        button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-
-
-                                summertimessaga102_Exit.this.startActivity(new Intent(summertimessaga102_Exit.this, summertimessaga102_page.class));
-                            }
-
+                summertimessaga102_Exit.this.startActivity(new Intent(summertimessaga102_Exit.this, summertimessaga102_startpage.class));
+            }
         });
     }
 
@@ -121,7 +114,7 @@ public class summertimessaga102_Exit extends AppCompatActivity {
         Log.e(TAG, "fbnative1 " + nativeid);
         nativeAdContainer = findViewById(R.id.fl_adplaceholder);
         LayoutInflater inflater = this.getLayoutInflater();
-        adView1 = (LinearLayout) inflater.inflate(R.layout.summertimessaga102_native_ad_layout2, nativeAdContainer, false);
+        adView1 = (LinearLayout) inflater.inflate(R.layout.summertimessaga101_native_ad_layout4, nativeAdContainer, false);
         nativeAdContainer.addView(adView1);
         nativeAd1 = new NativeAd(getApplicationContext(), nativeid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
@@ -285,10 +278,13 @@ public class summertimessaga102_Exit extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 
     @Override
     public void onBackPressed() {
+        super.onBackPressed();
+        ShowFullAds();
 
     }
 }

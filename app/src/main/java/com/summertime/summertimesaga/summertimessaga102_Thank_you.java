@@ -5,11 +5,13 @@ import static com.summertime.summertimesaga.summertimessaga102_splesh.inflateAd;
 import static com.summertime.summertimesaga.summertimessaga102_splesh.url_passing;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,10 +22,12 @@ import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.InterstitialAd;
 
+import com.facebook.ads.InterstitialAdListener;
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdListener;
 import com.facebook.ads.NativeBannerAd;
 import com.facebook.ads.NativeBannerAdView;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 
 public class summertimessaga102_Thank_you extends AppCompatActivity {
@@ -33,27 +37,37 @@ public class summertimessaga102_Thank_you extends AppCompatActivity {
     LinearLayout adView1;
     FrameLayout nativeAdContainer;
     NativeAd nativeAd1;
+    Button Button, exit_btn_1;
     InterstitialAd interstitialAd;
     public String TAG = String.valueOf(getClass());
-    public void onBackPressed() {
-    }
+
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView((int) R.layout.summertimessaga102_thank_you);
+
+
         loadfbNativeAd();
         showfbNativeBanner();
+        ShowFullAds();
+
         getWindow().setFlags(1024, 1024);
         getWindow().setFlags(1024, 1024);
-        ((ImageView) findViewById(R.id.visitr)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.visitr)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 finishAffinity();
                 finish();
             }
         });
     }
-     public void loadfbNativeAd() {
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        ShowFullAds();
+    }
+
+    public void loadfbNativeAd() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String nativeid = sharedPreferences.getString("nativeid", null);
 
@@ -157,6 +171,74 @@ public class summertimessaga102_Thank_you extends AppCompatActivity {
                         .withAdListener(nativeAdListener)
                         .build());
     }
-    /* access modifiers changed from: protected */
-    
+
+    public void ShowFullAds() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String full = sharedPreferences.getString("full", null);
+        Log.e(TAG, "fbfull2 " + full);
+        try {
+            if (summertimessaga102_splesh.interstitialAd1 != null && summertimessaga102_splesh.interstitialAd1.isAdLoaded()) {
+                summertimessaga102_splesh.interstitialAd1.show();
+
+            } else if (summertimessaga102_splesh.interstitialAd2 != null && summertimessaga102_splesh.interstitialAd2.isAdLoaded()) {
+                summertimessaga102_splesh.interstitialAd2.show();
+                summertimessaga102_splesh.interstitialAd1.loadAd();
+            } else {
+
+                summertimessaga102_splesh.interstitialAd1.loadAd();
+                summertimessaga102_splesh.interstitialAd2.loadAd();
+                interstitialAd = new InterstitialAd(this, full);
+                InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
+
+
+                    @Override
+                    public void onInterstitialDisplayed(Ad ad) {
+
+                    }
+
+                    @Override
+                    public void onInterstitialDismissed(Ad ad) {
+                        // Interstitial dismissed callback
+                        Log.e(TAG, "fbfull2 " + "Interstitial ad dismissed.");
+                    }
+
+                    @Override
+                    public void onError(Ad ad, AdError adError) {
+                        // Ad error callback
+                        Log.e(TAG, "fbfull2" + adError.getErrorMessage());
+
+                    }
+
+                    @Override
+                    public void onAdLoaded(Ad ad) {
+                        Log.d(TAG, "fbfull2 " + "Interstitial ad is loaded and ready to be diSplash_screenlayed!");
+                        if (interstitialAd != null && interstitialAd.isAdLoaded())
+                            interstitialAd.show();
+                    }
+
+                    @Override
+                    public void onAdClicked(Ad ad) {
+                        // Ad clicked callback
+                        Log.d(TAG, "fbfull2 " + "Interstitial ad clicked!");
+                    }
+
+                    @Override
+                    public void onLoggingImpression(Ad ad) {
+                        // Ad impression logged callback
+                        Log.d(TAG, "fbfull2 " + "Interstitial ad impression logged!");
+                    }
+                };
+
+                interstitialAd.loadAd(
+                        interstitialAd.buildLoadAdConfig()
+                                .withAdListener(interstitialAdListener)
+                                .build());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        url_passing(this);
+    }
+
 }

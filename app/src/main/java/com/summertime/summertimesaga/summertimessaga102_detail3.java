@@ -50,7 +50,7 @@ public class summertimessaga102_detail3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.summertimessaga102_detail3);
-        url_passing(summertimessaga102_detail3.this);
+
 
 
         WebView webView1 = (WebView) findViewById(R.id.web_view);
@@ -83,10 +83,6 @@ public class summertimessaga102_detail3 extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        url_passing(summertimessaga102_detail3.this);
-
-
         ShowFullAds();
     }
 
@@ -264,6 +260,7 @@ public class summertimessaga102_detail3 extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 
 

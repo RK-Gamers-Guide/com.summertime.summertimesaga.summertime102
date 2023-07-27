@@ -60,7 +60,7 @@ public class summertimessaga102_splesh extends AppCompatActivity {
             @Override
             public void run() {
 
-                summertimessaga102_splesh.this.startActivity(new Intent(summertimessaga102_splesh.this, summertimessaga102_page.class));
+                summertimessaga102_splesh.this.startActivity(new Intent(summertimessaga102_splesh.this, summertimessaga102_startpage.class));
 
             }
         }, 5000);

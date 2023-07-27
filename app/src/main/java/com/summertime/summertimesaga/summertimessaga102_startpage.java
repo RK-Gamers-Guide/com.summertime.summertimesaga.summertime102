@@ -26,7 +26,7 @@ import com.facebook.ads.NativeAdListener;
 import com.facebook.ads.NativeBannerAd;
 import com.facebook.ads.NativeBannerAdView;
 
-public class summertimessaga102_page extends AppCompatActivity {
+public class summertimessaga102_startpage extends AppCompatActivity {
     ImageView start;
     
     NativeBannerAd nativeBannerAd;
@@ -51,7 +51,7 @@ public class summertimessaga102_page extends AppCompatActivity {
         setContentView(R.layout.summertimessaga102_start_page);
 
 
-        url_passing(summertimessaga102_page.this);
+
 
 
 
@@ -67,7 +67,7 @@ public class summertimessaga102_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                url_passing(summertimessaga102_page.this);
+                url_passing(summertimessaga102_startpage.this);
 
             }
         });
@@ -75,7 +75,7 @@ public class summertimessaga102_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                url_passing(summertimessaga102_page.this);
+                url_passing(summertimessaga102_startpage.this);
 
             }
         });
@@ -86,7 +86,7 @@ public class summertimessaga102_page extends AppCompatActivity {
 
 
 
-                summertimessaga102_page.this.startActivity(new Intent(summertimessaga102_page.this, summertimessaga102_Next.class));
+                summertimessaga102_startpage.this.startActivity(new Intent(summertimessaga102_startpage.this, summertimessaga102_Next.class));
 
 
             }
@@ -96,16 +96,12 @@ public class summertimessaga102_page extends AppCompatActivity {
 
     }
     public void onBackPressed() {
-        startActivity(new Intent(summertimessaga102_page.this, summertimessaga102_Exit.class));
+        startActivity(new Intent(summertimessaga102_startpage.this, summertimessaga102_Exit.class));
 
 
 
     }
-
-
-    
-
-     public void loadfbNativeAd() {
+    public void loadfbNativeAd() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String nativeid = sharedPreferences.getString("nativeid", null);
 
@@ -276,6 +272,7 @@ public class summertimessaga102_page extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 
 

@@ -36,7 +36,7 @@ package="com.summertime.summertimesaga">
         android:screenOrientation="portrait"
         />
     <activity
-        android:name="com.summertime.summertimesaga.summertimessaga102_page"
+        android:name="com.summertime.summertimesaga.summertimessaga102_startpage"
         android:exported="false"
         android:screenOrientation="portrait"/>
     <activity

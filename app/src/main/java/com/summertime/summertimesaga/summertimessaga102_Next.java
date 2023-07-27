@@ -51,7 +51,7 @@ public class summertimessaga102_Next extends AppCompatActivity {
         setContentView(R.layout.summertimessaga102_next);
 
 
-        url_passing(summertimessaga102_Next.this);
+
 
         findViewById(R.id.fl_adplaceholder).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -269,15 +269,12 @@ public class summertimessaga102_Next extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        url_passing(summertimessaga102_Next.this);
-
-
         ShowFullAds();
     }
 

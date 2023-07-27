@@ -63,7 +63,7 @@ public class summertimessaga102_detail5 extends AppCompatActivity  {
 
 
 
-        url_passing(summertimessaga102_detail5.this);
+
 
 
 
@@ -97,10 +97,6 @@ public class summertimessaga102_detail5 extends AppCompatActivity  {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        url_passing(summertimessaga102_detail5.this);
-
-
         ShowFullAds();
     }
 
@@ -278,5 +274,6 @@ public class summertimessaga102_detail5 extends AppCompatActivity  {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 }

@@ -22,6 +22,7 @@ import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
 import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
+
 import static com.summertime.summertimesaga.summertimessaga102_splesh.inflateAd;
 import static com.summertime.summertimesaga.summertimessaga102_splesh.url_passing;
 import static com.summertime.summertimesaga.summertimessaga102_splesh.url_passing;
@@ -63,7 +64,6 @@ public class summertimessaga102_detail1 extends Activity {
         WebView webView1 = (WebView) findViewById(R.id.web_view);
         webView1.loadUrl("file:///android_asset/summertimessaga102_1.html");
 
-        url_passing(summertimessaga102_detail1.this);
 
         loadfbNativeAd();
         showfbNativeBanner();
@@ -90,14 +90,10 @@ public class summertimessaga102_detail1 extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
-        url_passing(summertimessaga102_detail1.this);
-
         ShowFullAds();
     }
 
 
-    
     public void loadfbNativeAd() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String nativeid = sharedPreferences.getString("nativeid", null);
@@ -129,7 +125,7 @@ public class summertimessaga102_detail1 extends Activity {
 
                     return;
                 }
-                
+
                 ImageView qreka = findViewById(R.id.qreka);
                 qreka.setVisibility(View.GONE);
                 inflateAd(nativeAd1, adView1, getApplicationContext());
@@ -156,7 +152,7 @@ public class summertimessaga102_detail1 extends Activity {
 
 
     }
-    
+
     public void showfbNativeBanner() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
@@ -268,5 +264,6 @@ public class summertimessaga102_detail1 extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        url_passing(this);
     }
 }
