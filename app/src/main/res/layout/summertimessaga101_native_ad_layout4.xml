@@ -100,10 +100,10 @@
             style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#fff"
+            android:backgroundTint="#2f86d6"
             android:text="Start"
             android:textStyle="bold"
-            android:textColor="#000"
+            android:textColor="#fff"
             android:textSize="20dp"
             android:layout_gravity="center"
             />

@@ -51,10 +51,10 @@
 
                 android:gravity="center"
                 android:text="Signing Off. Take Care"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textSize="20.0dip"
                 android:textStyle="bold"
-                android:backgroundTint="#fff" />
+                android:backgroundTint="#2f86d6" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -91,31 +91,34 @@
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                     android:id="@+id/exitapp"
-
+                    style="@style/Widget.Material3.Button.ElevatedButton"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
-
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp"
                     android:text="Yes Exit "
-                    android:textColor="#000"
+                    android:textColor="#fff"
                     android:textStyle="bold"
-                    android:backgroundTint="#fff"
+                    android:backgroundTint="#2f86d6"
                     app:icon="@drawable/magisknew2_baseline_exit_to_app_24"
-                    app:iconTint="#000" />
+                    app:iconTint="#fff" />
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                     android:id="@+id/btn_no"
-
+                    style="@style/Widget.Material3.Button.ElevatedButton"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="Previous"
-                    android:textColor="#000"
+                    android:textColor="#fff"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp"
                     android:textStyle="bold"
-                    android:backgroundTint="#fff"
+                    android:backgroundTint="#2f86d6"
                     app:icon="@drawable/magisknew2_baseline_arrow_forward_24"
                     app:iconGravity="end"
-                    app:iconTint="#000"  />
+                    app:iconTint="#fff"  />
 
 
             </LinearLayout>
