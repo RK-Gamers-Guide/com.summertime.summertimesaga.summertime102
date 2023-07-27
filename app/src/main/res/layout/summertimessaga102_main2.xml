@@ -15,6 +15,11 @@
         android:orientation="vertical"
         android:visibility="visible">
 
+        <ImageView
+            android:id="@+id/qreka"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/summertimessaga102_qc" />
 
     </FrameLayout>
 
@@ -86,6 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
+        android:background="@drawable/summertimessaga102_qb3"
         android:visibility="visible">
 
     </FrameLayout>

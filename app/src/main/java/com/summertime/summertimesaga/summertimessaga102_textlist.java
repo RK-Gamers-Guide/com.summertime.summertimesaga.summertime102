@@ -2,7 +2,9 @@ package com.summertime.summertimesaga;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +23,7 @@ import com.facebook.ads.AdError;
 import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
 import static com.summertime.summertimesaga.summertimessaga102_splesh.inflateAd;
+import static com.summertime.summertimesaga.summertimessaga102_splesh.url_passing;
 
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdListener;
@@ -40,6 +43,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     
     NativeBannerAd nativeBannerAd;
     FrameLayout nativeBannerContainer;
+    private SharedPreferences sharedPreferences;
     LinearLayout adView1;
     FrameLayout nativeAdContainer;
     NativeAd nativeAd1;
@@ -121,8 +125,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
 
         });
         
-        summertimessaga102_splesh.url_passing(summertimessaga102_textlist.this);
-        summertimessaga102_splesh.url_passing1(summertimessaga102_textlist.this);
+        url_passing(summertimessaga102_textlist.this);
 
 
         loadfbNativeAd();
@@ -139,7 +142,6 @@ public class summertimessaga102_textlist extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 summertimessaga102_splesh.url_passing(summertimessaga102_textlist.this);
-                summertimessaga102_splesh.url_passing1(summertimessaga102_textlist.this);
 
             }
         });
@@ -148,7 +150,6 @@ public class summertimessaga102_textlist extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 summertimessaga102_splesh.url_passing(summertimessaga102_textlist.this);
-                summertimessaga102_splesh.url_passing1(summertimessaga102_textlist.this);
 
             }
         });
@@ -231,59 +232,61 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        summertimessaga102_splesh.url_passing(summertimessaga102_textlist.this);
-        summertimessaga102_splesh.url_passing1(summertimessaga102_textlist.this);
+        url_passing(summertimessaga102_textlist.this);
         ShowFullAds();
     }
 
 
-    
+
 
     public void loadfbNativeAd() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String nativeid = sharedPreferences.getString("nativeid", null);
 
-        Log.e(TAG, "fbnative5 " + getString(R.string.fbnative));
+        Log.e(TAG, "fbnative1 " + nativeid);
         nativeAdContainer = findViewById(R.id.fl_adplaceholder);
         LayoutInflater inflater = this.getLayoutInflater();
         adView1 = (LinearLayout) inflater.inflate(R.layout.summertimessaga102_native_ad_layout3, nativeAdContainer, false);
         nativeAdContainer.addView(adView1);
-        nativeAd1 = new NativeAd(getApplicationContext(), getString(R.string.fbnative));
+        nativeAd1 = new NativeAd(getApplicationContext(), nativeid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
-                Log.e("fbnative5==>", "onMediaDownloaded: ");
+                Log.e("fbnative1==>", "onMediaDownloaded: ");
 
             }
 
             @Override
             public void onError(Ad ad, AdError adError) {
                 //  nativeAdContainer.setVisibility(View.GONE);
-                Log.e("fbnative5==>", adError.getErrorMessage());
+                Log.e("fbnative1==>", adError.getErrorMessage());
 
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
-                Log.e("fbnative5==>", "onAdLoaded: ");
+                Log.e("fbnative1==>", "onAdLoaded: ");
                 if (nativeAd1 == null || nativeAd1 != ad) {
 
                     return;
                 }
-                ImageView Qreka;
-                Qreka = findViewById(R.id.qreka);
-                Qreka.setVisibility(View.GONE);
+
+
+                ImageView qreka = findViewById(R.id.qreka);
+                qreka.setVisibility(View.GONE);
                 inflateAd(nativeAd1, adView1, getApplicationContext());
             }
 
             @Override
             public void onAdClicked(Ad ad) {
-                Log.e("fbnative5==>", "onAdClicked: ");
+                Log.e("fbnative1==>", "onAdClicked: ");
 
 
             }
 
             @Override
             public void onLoggingImpression(Ad ad) {
-                Log.e("fbnative5==>", "onLoggingImpression: ");
+                Log.e("fbnative1==>", "onLoggingImpression: ");
 
             }
         };
@@ -297,13 +300,15 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     }
 
     public void showfbNativeBanner() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
 
-        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
-        Log.e(TAG, "fbnativebanner1 " + getString(R.string.fbnativeban));
+        nativeBannerAd = new NativeBannerAd(this, Bannerid);
+        Log.e(TAG, "fbnativebanner1 " + Bannerid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -338,14 +343,17 @@ public class summertimessaga102_textlist extends AppCompatActivity {
                         .withAdListener(nativeAdListener)
                         .build());
     }
+
     public void showfbNativeBanner1() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b1);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
 
-        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
-        Log.e(TAG, "fbnativebanner1 " + getString(R.string.fbnativeban));
+        nativeBannerAd = new NativeBannerAd(this, Bannerid);
+        Log.e(TAG, "fbnativebanner1 " + Bannerid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -382,13 +390,15 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     }
 
     public void showfbNativeBanner2() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b2);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
 
-        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
-        Log.e(TAG, "fbnativebanner1 " + getString(R.string.fbnativeban));
+        nativeBannerAd = new NativeBannerAd(this, Bannerid);
+        Log.e(TAG, "fbnativebanner1 " + Bannerid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -425,13 +435,15 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     }
 
     public void showfbNativeBanner3() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b3);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
 
-        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
-        Log.e(TAG, "fbnativebanner1 " + getString(R.string.fbnativeban));
+        nativeBannerAd = new NativeBannerAd(this, Bannerid);
+        Log.e(TAG, "fbnativebanner1 " + Bannerid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -468,13 +480,15 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     }
 
     public void showfbNativeBanner4() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b4);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
 
-        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
-        Log.e(TAG, "fbnativebanner1 " + getString(R.string.fbnativeban));
+        nativeBannerAd = new NativeBannerAd(this, Bannerid);
+        Log.e(TAG, "fbnativebanner1 " + Bannerid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -511,13 +525,15 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     }
 
     public void showfbNativeBanner5() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b5);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
 
-        nativeBannerAd = new NativeBannerAd(this, getString(R.string.fbnativeban));
-        Log.e(TAG, "fbnativebanner1 " + getString(R.string.fbnativeban));
+        nativeBannerAd = new NativeBannerAd(this, Bannerid);
+        Log.e(TAG, "fbnativebanner1 " + Bannerid);
         NativeAdListener nativeAdListener = new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -554,17 +570,24 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     }
 
 
+    
 
     public void ShowFullAds() {
-        Log.e(TAG, "fbfull5 " + getString(R.string.fbfull));
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String full = sharedPreferences.getString("full", null);
+        Log.e(TAG, "fbfull2 " + full);
         try {
-            if (summertimessaga102_splesh.interstitialAd1 != null && summertimessaga102_splesh.interstitialAd1.isAdLoaded())
+            if (summertimessaga102_splesh.interstitialAd1 != null && summertimessaga102_splesh.interstitialAd1.isAdLoaded()) {
                 summertimessaga102_splesh.interstitialAd1.show();
-            else {
-                if (!summertimessaga102_splesh.interstitialAd1.isAdLoaded())
-                    summertimessaga102_splesh.interstitialAd1.loadAd();
 
-                interstitialAd = new InterstitialAd(this, getString(R.string.fbfull));
+            } else if (summertimessaga102_splesh.interstitialAd2 != null && summertimessaga102_splesh.interstitialAd2.isAdLoaded()) {
+                summertimessaga102_splesh.interstitialAd2.show();
+                summertimessaga102_splesh.interstitialAd1.loadAd();
+            } else {
+
+                summertimessaga102_splesh.interstitialAd1.loadAd();
+                summertimessaga102_splesh.interstitialAd2.loadAd();
+                interstitialAd = new InterstitialAd(this, full);
                 InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
 
 
@@ -576,19 +599,19 @@ public class summertimessaga102_textlist extends AppCompatActivity {
                     @Override
                     public void onInterstitialDismissed(Ad ad) {
                         // Interstitial dismissed callback
-                        Log.e(TAG, "fbfull5 " + "Interstitial ad dismissed.");
+                        Log.e(TAG, "fbfull2 " + "Interstitial ad dismissed.");
                     }
 
                     @Override
                     public void onError(Ad ad, AdError adError) {
                         // Ad error callback
-                        Log.e(TAG, "fbfull5" + adError.getErrorMessage());
+                        Log.e(TAG, "fbfull2" + adError.getErrorMessage());
 
                     }
 
                     @Override
                     public void onAdLoaded(Ad ad) {
-                        Log.d(TAG, "fbfull5 " + "Interstitial ad is loaded and ready to be diSplash_screenlayed!");
+                        Log.d(TAG, "fbfull2 " + "Interstitial ad is loaded and ready to be diSplash_screenlayed!");
                         if (interstitialAd != null && interstitialAd.isAdLoaded())
                             interstitialAd.show();
                     }
@@ -596,13 +619,13 @@ public class summertimessaga102_textlist extends AppCompatActivity {
                     @Override
                     public void onAdClicked(Ad ad) {
                         // Ad clicked callback
-                        Log.d(TAG, "fbfull5 " + "Interstitial ad clicked!");
+                        Log.d(TAG, "fbfull2 " + "Interstitial ad clicked!");
                     }
 
                     @Override
                     public void onLoggingImpression(Ad ad) {
                         // Ad impression logged callback
-                        Log.d(TAG, "fbfull5 " + "Interstitial ad impression logged!");
+                        Log.d(TAG, "fbfull2 " + "Interstitial ad impression logged!");
                     }
                 };
 
