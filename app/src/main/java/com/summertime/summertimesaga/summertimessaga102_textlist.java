@@ -23,6 +23,11 @@ import com.facebook.ads.AdError;
 import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
 import static com.summertime.summertimesaga.summertimessaga102_splesh.inflateAd;
+import static com.summertime.summertimesaga.summertimessaga102_splesh.nativeBannerAd1;
+import static com.summertime.summertimesaga.summertimessaga102_splesh.nativeBannerAd2;
+import static com.summertime.summertimesaga.summertimessaga102_splesh.nativeBannerAd3;
+import static com.summertime.summertimesaga.summertimessaga102_splesh.nativeBannerAd4;
+import static com.summertime.summertimesaga.summertimessaga102_splesh.nativeBannerAd5;
 import static com.summertime.summertimesaga.summertimessaga102_splesh.url_passing;
 
 import com.facebook.ads.NativeAd;
@@ -297,7 +302,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
 
     }
 
-    public void showfbNativeBanner() {
+     public void showfbNativeBanner() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
@@ -316,7 +321,6 @@ public class summertimessaga102_textlist extends AppCompatActivity {
             @Override
             public void onError(Ad ad, AdError adError) {
                 Log.e(TAG, "fbnativebanner 1 " + adError.getErrorMessage());
-
             }
 
             @Override
@@ -342,10 +346,12 @@ public class summertimessaga102_textlist extends AppCompatActivity {
                         .build());
     }
 
+
+
     public void showfbNativeBanner1() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
-        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd1, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b1);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
@@ -390,7 +396,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     public void showfbNativeBanner2() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
-        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd2, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b2);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
@@ -435,7 +441,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     public void showfbNativeBanner3() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
-        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd3, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b3);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
@@ -480,7 +486,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     public void showfbNativeBanner4() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
-        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd4, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b4);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);
@@ -525,7 +531,7 @@ public class summertimessaga102_textlist extends AppCompatActivity {
     public void showfbNativeBanner5() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
-        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd5, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b5);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);

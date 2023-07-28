@@ -152,10 +152,56 @@ public class summertimessaga102_detail4 extends AppCompatActivity {
 
     }
 
-    public void showfbNativeBanner() {
+     public void showfbNativeBanner() {
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String Bannerid = sharedPreferences.getString("Bannerid", null);
         View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+        nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b);
+        // Add the Native Banner Ad View to your ad container
+        nativeBannerContainer.addView(adView);
+
+        nativeBannerAd = new NativeBannerAd(this, Bannerid);
+        Log.e(TAG, "fbnativebanner1 " + Bannerid);
+        NativeAdListener nativeAdListener = new NativeAdListener() {
+            @Override
+            public void onMediaDownloaded(Ad ad) {
+
+            }
+
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                Log.e(TAG, "fbnativebanner 1 " + adError.getErrorMessage());
+                showfbNativeBanner1();
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                Log.e(TAG, "Native ad is loaded and ready to be displayed!");
+                View adView = NativeBannerAdView.render(getApplicationContext(), nativeBannerAd, NativeBannerAdView.Type.HEIGHT_100);
+                nativeBannerContainer.addView(adView);
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+
+            }
+        };
+        nativeBannerAd.loadAd(
+                nativeBannerAd.buildLoadAdConfig()
+                        .withAdListener(nativeAdListener)
+                        .build());
+    }
+
+
+    public void showfbNativeBanner1() {
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        String Bannerid = sharedPreferences.getString("Bannerid", null);
+        View adView = NativeBannerAdView.render(this, summertimessaga102_splesh.nativeBannerAd1, NativeBannerAdView.Type.HEIGHT_100);
         nativeBannerContainer = (FrameLayout) findViewById(R.id.fl_b);
         // Add the Native Banner Ad View to your ad container
         nativeBannerContainer.addView(adView);

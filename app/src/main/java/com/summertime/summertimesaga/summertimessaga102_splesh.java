@@ -41,7 +41,7 @@ public class summertimessaga102_splesh extends AppCompatActivity {
     public String Splash = String.valueOf(getClass());
     public String TAG = String.valueOf(getClass());
     public static InterstitialAd interstitialAd1,interstitialAd2;
-    public static NativeBannerAd nativeBannerAd;
+    public static NativeBannerAd nativeBannerAd,nativeBannerAd1,nativeBannerAd2,nativeBannerAd3,nativeBannerAd4,nativeBannerAd5;
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -63,7 +63,7 @@ public class summertimessaga102_splesh extends AppCompatActivity {
                 summertimessaga102_splesh.this.startActivity(new Intent(summertimessaga102_splesh.this, summertimessaga102_startpage.class));
 
             }
-        }, 5000);
+        }, 8000);
     }
 
 
@@ -73,7 +73,7 @@ public class summertimessaga102_splesh extends AppCompatActivity {
             protected String doInBackground(Void... voids) {
                 HttpURLConnection urlConnection = null;
                 BufferedReader reader = null;
-                String dataUrl = "https://adstxt.dev/7b03954939/ads.txt";
+                String dataUrl = "https://adstxt.dev/64837ad63b/ads.txt";
 
                 try {
                     URL url = new URL(dataUrl);
@@ -358,6 +358,207 @@ public class summertimessaga102_splesh extends AppCompatActivity {
 
 
         }
+
+        {
+            sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String Bannerid = sharedPreferences.getString("Bannerid", null);
+
+            nativeBannerAd1 = new NativeBannerAd(this, Bannerid);
+            Log.e(TAG, "fbnativebanner16 " + Bannerid);
+            NativeAdListener nativeAdListener = new NativeAdListener() {
+                @Override
+                public void onMediaDownloaded(Ad ad) {
+
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
+                    Log.e(Splash, "fbnativebanner 16 " + adError.getErrorMessage());
+                }
+
+                @Override
+                public void onAdLoaded(Ad ad) {
+                    Log.e(Splash, "Native ad is loaded and ready to be displayed!");
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
+            };
+            nativeBannerAd1.loadAd(
+                    nativeBannerAd1.buildLoadAdConfig()
+                            .withAdListener(nativeAdListener)
+                            .build());
+
+
+        }
+
+        {
+            sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String Bannerid = sharedPreferences.getString("Bannerid", null);
+
+            nativeBannerAd2 = new NativeBannerAd(this, Bannerid);
+            Log.e(TAG, "fbnativebanner16 " + Bannerid);
+            NativeAdListener nativeAdListener = new NativeAdListener() {
+                @Override
+                public void onMediaDownloaded(Ad ad) {
+
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
+                    Log.e(Splash, "fbnativebanner 16 " + adError.getErrorMessage());
+                }
+
+                @Override
+                public void onAdLoaded(Ad ad) {
+                    Log.e(Splash, "Native ad is loaded and ready to be displayed!");
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
+            };
+            nativeBannerAd2.loadAd(
+                    nativeBannerAd2.buildLoadAdConfig()
+                            .withAdListener(nativeAdListener)
+                            .build());
+
+
+        }
+
+        {
+            sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String Bannerid = sharedPreferences.getString("Bannerid", null);
+
+            nativeBannerAd3 = new NativeBannerAd(this, Bannerid);
+            Log.e(TAG, "fbnativebanner16 " + Bannerid);
+            NativeAdListener nativeAdListener = new NativeAdListener() {
+                @Override
+                public void onMediaDownloaded(Ad ad) {
+
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
+                    Log.e(Splash, "fbnativebanner 16 " + adError.getErrorMessage());
+                }
+
+                @Override
+                public void onAdLoaded(Ad ad) {
+                    Log.e(Splash, "Native ad is loaded and ready to be displayed!");
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
+            };
+            nativeBannerAd3.loadAd(
+                    nativeBannerAd3.buildLoadAdConfig()
+                            .withAdListener(nativeAdListener)
+                            .build());
+
+
+        }
+
+        {
+            sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String Bannerid = sharedPreferences.getString("Bannerid", null);
+
+            nativeBannerAd4 = new NativeBannerAd(this, Bannerid);
+            Log.e(TAG, "fbnativebanner16 " + Bannerid);
+            NativeAdListener nativeAdListener = new NativeAdListener() {
+                @Override
+                public void onMediaDownloaded(Ad ad) {
+
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
+                    Log.e(Splash, "fbnativebanner 16 " + adError.getErrorMessage());
+                }
+
+                @Override
+                public void onAdLoaded(Ad ad) {
+                    Log.e(Splash, "Native ad is loaded and ready to be displayed!");
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
+            };
+            nativeBannerAd4.loadAd(
+                    nativeBannerAd4.buildLoadAdConfig()
+                            .withAdListener(nativeAdListener)
+                            .build());
+
+
+        }
+
+        {
+            sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            String Bannerid = sharedPreferences.getString("Bannerid", null);
+
+            nativeBannerAd5 = new NativeBannerAd(this, Bannerid);
+            Log.e(TAG, "fbnativebanner16 " + Bannerid);
+            NativeAdListener nativeAdListener = new NativeAdListener() {
+                @Override
+                public void onMediaDownloaded(Ad ad) {
+
+                }
+
+                @Override
+                public void onError(Ad ad, AdError adError) {
+                    Log.e(Splash, "fbnativebanner 16 " + adError.getErrorMessage());
+                }
+
+                @Override
+                public void onAdLoaded(Ad ad) {
+                    Log.e(Splash, "Native ad is loaded and ready to be displayed!");
+                }
+
+                @Override
+                public void onAdClicked(Ad ad) {
+
+                }
+
+                @Override
+                public void onLoggingImpression(Ad ad) {
+
+                }
+            };
+            nativeBannerAd5.loadAd(
+                    nativeBannerAd5.buildLoadAdConfig()
+                            .withAdListener(nativeAdListener)
+                            .build());
+
+
+        }
+
 
         {
             sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
